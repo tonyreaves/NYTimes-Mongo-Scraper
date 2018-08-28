@@ -37,12 +37,12 @@ app.get("/scrape", function(req, res) {
       $(".article-h2").each(function(i, element) {
         // Save the text and href of each link enclosed in the current element
         var title = $(element).text();
-        var link = $(element).parents('a').attr("href");
+        var link = $(element).parents().attr("href");
   
         // If this found element had both a title and a link
         if (title && link) {
           // Insert the data in the scrapedData db
-          db.Article.insert({
+          db.Article.create({
             title: title,
             link: link
           },
