@@ -4,15 +4,12 @@
   
   nav {
       background: #6B2737;
-      height: 4rem;
-      flex-flow: row;
-      clear: both;
-      left: 15%;
-      width:100%;
+      height: 3.4rem;
+      margin: 10rem left;
   }
   
   .pageTitle {
-      font-size: 4rem;
+      font-size: 3.8rem;
       font-family: 'Rubik', sans-serif;
       letter-spacing: -0.15rem;
   }
@@ -23,18 +20,18 @@
   }
   
   #theName {
-      left: -10.5rem;
+      left: -8.5rem;
       position: absolute;
-      top: 9rem;
+      top: 12.7rem;
       transform: rotate(270deg);
       border-bottom: solid .5rem #6B2737;
-      height: 7rem;
     display: flex;
+    height: 4rem;
   }
   
   button {
     background: #456990;
-    padding: 1rem;
+    padding: .7rem;
     font-family: 'Rubik', sans-serif;
     font-size: 1rem;
     color: white;
