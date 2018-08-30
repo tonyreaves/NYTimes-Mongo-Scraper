@@ -4,37 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>NYT Scrape</title>
+    <title>NewsScrape</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Rubik:700" rel="stylesheet">
 
 </head>
 
 <body>
-    <div id="theName">
-        <header>
-            <h1 class="pageTitle">NewScrape</h1>
-        </header>
+    <div id="pageContainer">
+        <div id="theName">
+            <header>
+                <h1 class="pageTitle">NewsScrape</h1>
+            </header>
+        </div>
+        <div class="container">
+            <nav>
+                <a href="/">
+                    <button id="home">Home</button></a>
+                <a href="/articles">
+                    <button id="saved">
+                        Saved articles
+                    </button></a>
+                <a href="/scrape">
+                    <button id="scrape">
+                        Scrape new
+                    </button></a>
+            </nav>
+            <main>
+                <div id="articles">
+                    <!-- <span id="titleinput"></span>
+                <span id="bodyinput"></span> -->
+                    <li v-for="articles in articles">
+                        <h4>{{ data.title }}</h4>
+                        {{ link }}
+                    </li>
+                    </ul>
+                </div>
+            </main>
+        </div>
     </div>
-    <nav>
-        <a href="/">
-            <button id="home">Home</button></a>
-        <a href="/articles">
-            <button id="saved">
-                Saved articles
-            </button></a>
-        <a href="/scrape">
-            <button id="scrape">
-                Scrape new
-            </button></a>
-    </nav>
-    <main>
-        <div id="articles">
-            <div class="headline"></div>
-            <div class="" </div>
-    </main>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
 </body>
 
 </html>

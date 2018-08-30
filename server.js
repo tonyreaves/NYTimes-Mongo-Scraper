@@ -30,21 +30,22 @@ mongoose.connect
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
     // Make a request for bangordailynews.com
-    request("https://bangordailynews.com/", function(error, response, html) {
+    request("https://washingtonpost.com/", function(error, response, html) {
       // Load the html body from request into cheerio
-      var $ = cheerio.load(html);
+      const $ = cheerio.load(html);
       // For each element with a "title" class
-      $(".article-h2").each(function(i, element) {
+      $(".headline").each(function(i, element) {
         // Save the text and href of each link enclosed in the current element
-        var title = $(element).text();
-        var link = $(element).parents().attr("href");
-  
+        const title = $(element).children().text();
+        const link = $(element).children().attr("href");
+        const details = $(element).nextUntil(".blurb").text();
         // If this found element had both a title and a link
-        if (title && link) {
+        if (title && link && details) {
           // Insert the data in the scrapedData db
           db.Article.create({
             title: title,
-            link: link
+            link: link,
+            details: details
           },
           function(err, inserted) {
             if (err) {
@@ -113,6 +114,7 @@ app.get("/articles", function(req, res) {
         res.json(err);
       });
   });
+
 
 app.listen(PORT, function() {
     console.log("App running on port " + PORT + "!");

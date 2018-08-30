@@ -3,13 +3,12 @@
   }
   
   nav {
-      background: lightskyblue;
-      height: 3.6rem;
+      background: #6B2737;
+      height: 4rem;
       flex-flow: row;
       clear: both;
       left: 15%;
-      position: absolute;
-      width:94%;
+      width:100%;
   }
   
   .pageTitle {
@@ -17,22 +16,35 @@
       font-family: 'Rubik', sans-serif;
       letter-spacing: -0.15rem;
   }
+
+  #pageContainer {
+      display: flex;
+      flex-flow: column;
+  }
   
   #theName {
-      left: -10%;
+      left: -10.5rem;
       position: absolute;
-      top: 7rem;
+      top: 9rem;
       transform: rotate(270deg);
-      border-bottom: solid .5rem red;
+      border-bottom: solid .5rem #6B2737;
       height: 7rem;
+    display: flex;
   }
   
   button {
-    background: #47B4F7;
+    background: #456990;
     padding: 1rem;
     font-family: 'Rubik', sans-serif;
     font-size: 1rem;
     color: white;
     border-radius: 4%;
     box-shadow: .1rem .1rem black;
+    margin: .3rem 0 .3rem .2rem;
+  }
+
+  .container {
+      display: flex;
+      flex-flow: column;
+      left: 7rem;
   }
