@@ -3,7 +3,15 @@ $.getJSON("/articles", function (data) {
   // For each one
   for (let i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<div id='articleDiv'><h1 id='headline' data-id='" + data[i]._id + "'><button id='addBtn'><i class='far fa-bookmark'></i><p>Save</p></button>" + "<a href='" + data[i].link + "'>" + data[i].title + "</a></h1><p>" + "<br />" + data[i].details + "</p></div>");
+    $("#articles").append("<div id='articleDiv'><div id='topDiv'><h1 id='headline' data-id='" + data[i]._id + "'>" + "<a href='" + data[i].link + "'>" + data[i].title + " " + "<i class='fas fa-external-link-alt'></i></a></h1><button id='addBtn'><i class='far fa-bookmark'></i><p>Save</p></button></div><p>" + "<br />" + data[i].details + "</p></div>");
+  }
+});
+
+$.getJSON("/saved", function (data) {
+  // For each one
+  for (let i = 0; i < data.length; i++) {
+    // Display the apropos information on the page
+    $("#articles").append("<div id='articleDiv'><div id='topDiv'><h1 id='headline' data-id='" + data[i]._id + "'>" + "<a href='" + data[i].link + "'>" + data[i].title + " " + "<i class='fas fa-external-link-alt'></i></a></h1></div><p>" + "<br />" + data[i].details + "</p><button id='addBtn'><i class='far fa-bookmark'></i><p>Save</p></button></div><div id='notes'></div>");
   }
 });
 
@@ -43,14 +51,14 @@ $(document).on("click", "p", function () {
 });
 
 // When you click the savenote button
-$(document).on("click", "#savenote", function () {
+$(document).on("click", "#addBtn", function () {
   // Grab the id associated with the article from the submit button
   var thisId = $(this).attr("data-id");
 
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
     method: "POST",
-    url: "/articles/" + thisId,
+    url: "/saved" + thisId,
     data: {
       // Value taken from title input
       title: $("#titleinput").val(),
@@ -72,17 +80,15 @@ $(document).on("click", "#savenote", function () {
 });
 
 
+//Attempt at using Vue
+// var app = new Vue({
+//   el: '#articles',
+//   data: {
+//     title: "",
+//     details: ""
+//   },
+// })
 
-
-
-var app = new Vue({
-  el: '#articles',
-  data: {
-    title: "",
-    details: ""
-  },
-})
-
-$.getJSON('articles', function (json) {
-  app.json = json;
-})
+// $.getJSON('articles', function (json) {
+//   app.json = json;
+// })

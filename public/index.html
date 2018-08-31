@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Rubik:700" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
 
 </head>
 
@@ -24,30 +25,26 @@
             <nav>
                 <a href="/">
                     <button id="home">
-                        Home</button></a>
-                <a href="/articles">
+                        <i class="fas fa-home"></i></button></a>
+                <a href="/saved"></a>
                     <button id="saved">
-                        Saved articles
+                        <i class="far fa-newspaper"></i>
+                        Saved
                     </button></a>
                 <a href="/scrape">
                     <button id="scrape">
+                        <i class="fas fa-sync-alt"></i>
                         Scrape new
+                    </button></a>
+                <a href="/clear">
+                    <button id="clear">
+                        <i class="far fa-file"></i>
+                        Clear
                     </button></a>
             </nav>
             <main>
-                <div class="vueContainer">
                     <div id="articles">
-                        <ul>
-                            <li v-for="articles in articles" v-on:click="toggleDetails(articles)">
-                                <h3>{{articles.title}}</h3>
-                                <div v-show="articles.showDetail">
-                                    <p v-if="articles.details">{{articles.details}}</p>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
-                </div>
-
             </main>
         </div>
     </div>
