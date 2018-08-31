@@ -1,68 +1,81 @@
 body {
-    background: #f4f4f4;
-    height: 100%
+  background: #f4f4f4;
+}
+
+#addBtn {
+  justify-items: flex-start;
+  margin-right: 1rem;
+  height: 4rem;
+}
+
+#addBtn:i {
+    height: 2rem;
 }
 
 #articles {
-    position: fixed;
-    left: 6rem;
-    margin-top: 1rem;
-  }
+  left: 6rem;
+  position: relative;
+  margin-top: 0.5rem;
+  margin-right: 6.5rem;
+  min-height: 100%;
+}
 
-  #articleDiv {
-    max-width: 95%; 
-    margin: auto;
-    min-height: initial;
-    position: relative;
-    background: rgb(223, 222, 222);
-    padding: 1rem;
-  }
-  
-  nav {
-      background: #6B2737;
-      height: 3.4rem;
-      margin: 10rem left;
-  }
-  
-  .pageTitle {
-      font-size: 3.8rem;
-      font-family: 'Rubik', sans-serif;
-      letter-spacing: -0.15rem;
-  }
-  
-  #theName {
-    left: -8.5rem;
-    position: absolute;
-    top: 12.7rem;
-    transform: rotate(270deg);
-    border-bottom: solid .5rem #6B2737;
-    display: flex;
-    height: 4rem;
-  }
-  
-  button {
-    background: #456990;
-    padding: .7rem;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1rem;
-    color: white;
-    border-radius: 4%;
-    box-shadow: .1rem .1rem black;
-    margin: .3rem 0 .3rem .2rem;
-  }
+#articleDiv {
+  max-width: 95%;
+  margin: 0.5rem;
+  min-height: initial;
+  background: rgb(223, 222, 222);
+  padding: 1rem;
+  border-left: .9rem solid #456990;
+}
 
-  .container {
-      display: flex;
-      flex-flow: column;
-      left: 7rem;
-  }
+nav {
+  background: #6b2737;
+  height: 3.4rem;
+  margin: 10rem left;
+}
 
-  #headline {
-    font-size: 1.7rem;
-    font-family: 'Rubik', sans-serif;
-    color: #456990;
-  }
+.pageTitle {
+  font-size: 3.8rem;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: -0.15rem;
+}
 
-  #headline:a {
-  text-decoration: none;
-  }
+#theName {
+  left: -8.5rem;
+  position: absolute;
+  top: 12.9rem;
+  transform: rotate(270deg);
+  border-bottom: solid 0.5rem #6b2737;
+  display: flex;
+  height: 4rem;
+}
+
+button {
+  background: #456990;
+  padding: 0.7rem;
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+  color: white;
+  border-radius: 4%;
+  box-shadow: 0.1rem 0.1rem black;
+  margin: 0.3rem 0 0.3rem 0.2rem;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  left: 7rem;
+}
+
+#headline {
+  font-size: 1.7rem;
+  font-family: "Rubik", sans-serif;
+  color: #456990;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+}
