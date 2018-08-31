@@ -2,20 +2,6 @@ body {
   background: #f4f4f4;
 }
 
-#addBtn {
-  height: 3.8rem;
-}
-
-#noteBtn {
-  height: 3.8rem;
-}
-
-.fa-bookmark:before {
-  content: "\f02e";
-  font-size: 1.4rem;
-  margin: 0 auto;
-}
-
 #articles {
   left: 6rem;
   position: relative;
@@ -35,6 +21,7 @@ body {
 
 .details {
   font-family: "PT Serif", serif;
+  margin-bottom: 1rem;
 }
 
 nav {
