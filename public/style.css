@@ -1,5 +1,8 @@
 #articles {
     background: white;
+    position: fixed;
+    left: 6rem;
+
   }
   
   nav {
@@ -44,4 +47,11 @@
       display: flex;
       flex-flow: column;
       left: 7rem;
+  }
+
+  #headline {
+    font-size: 1.6rem;
+    font-family: 'Rubik', sans-serif;
+    text-decoration: none;
+    color: #456990
   }

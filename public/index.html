@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="reset.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Rubik:700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
@@ -21,7 +22,8 @@
         <div class="container">
             <nav>
                 <a href="/">
-                    <button id="home">Home</button></a>
+                    <button id="home">
+                        Home</button></a>
                 <a href="/articles">
                     <button id="saved">
                         Saved articles
@@ -32,21 +34,25 @@
                     </button></a>
             </nav>
             <main>
-                <div id="articles">
-                    <!-- <span id="titleinput"></span>
-                <span id="bodyinput"></span> -->
-                    <li v-for="articles in articles">
-                        <h4>{{ data.title }}</h4>
-                        {{ link }}
-                    </li>
-                    </ul>
+                <div class="vueContainer">
+                    <div id="articles">
+                        <ul>
+                            <li v-for="articles in articles" v-on:click="toggleDetails(articles)">
+                                <h3>{{articles.title}}</h3>
+                                <div v-show="articles.showDetail">
+                                    <p v-if="articles.details">{{articles.details}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
             </main>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
-    <script src="jquery-3.3.1.min.js"></script>
+
 </body>
 
 </html>
