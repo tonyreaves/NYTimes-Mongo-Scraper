@@ -73,7 +73,7 @@ app.get("/scrape", function(req, res) {
     });
   });
   // Send a "Scrape Complete" message to the browser
-  alert("Scrape complete!");
+  res.send("Scrape complete!");
 });
 
 // Route for getting all Articles from the db
