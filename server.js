@@ -32,7 +32,7 @@ mongoose.connect(MONGODB_URI);
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // Make a request for bangordailynews.com
-  request("https://washingtonpost.com/", function(error, response, html) {
+  request("https://www.washingtonpost.com/", function(error, response, html) {
     // Load the html body from request into cheerio
     const $ = cheerio.load(html);
     // For each element with a "title" class
@@ -51,13 +51,14 @@ app.get("/scrape", function(req, res) {
         .siblings(".blurb")
         .text();
       // If this found element had both a title and a link
-      if (title && link) {
+      if (title && link && details) {
         // Insert the data in the scrapedData db
         db.Article.create(
           {
             title: title,
             link: link,
-            details: details
+            details: details,
+            saved: false
           },
           function(err, inserted) {
             if (err) {
@@ -89,6 +90,20 @@ app.get("/articles", function(req, res) {
       res.json(err);
     });
 });
+
+// // Route for getting all Articles from the db
+// app.get("/articles/saved", function(req, res) {
+//   // Grab every document in the Articles collection
+//   db.Article.find({"saved": true})
+//     .then(function(dbArticle) {
+//       // If we were able to successfully find Articles, send them back to the client
+//       res.json(dbArticle);
+//     })
+//     .catch(function(err) {
+//       // If an error occurred, send it to the client
+//       res.json(err);
+//     });
+// });
 
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function(req, res) {
