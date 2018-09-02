@@ -5,7 +5,7 @@ body {
 
 #articles {
   left: 5.8rem;
-  top: 4rem;
+  top: 3.6rem;
   position: relative;
   margin-top: 0.5rem;
   margin-right: 6.5rem;
@@ -47,7 +47,7 @@ nav {
 #theName {
   left: -8.5rem;
   position: absolute;
-  top: 12.9rem;
+  top: 13rem;
   transform: rotate(270deg);
   border-bottom: solid 0.45rem red;
   display: flex;

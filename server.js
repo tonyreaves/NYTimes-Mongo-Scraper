@@ -91,19 +91,35 @@ app.get("/articles", function(req, res) {
     });
 });
 
-// // Route for getting all Articles from the db
-// app.get("/articles/saved", function(req, res) {
-//   // Grab every document in the Articles collection
-//   db.Article.find({"saved": true})
-//     .then(function(dbArticle) {
-//       // If we were able to successfully find Articles, send them back to the client
-//       res.json(dbArticle);
-//     })
-//     .catch(function(err) {
-//       // If an error occurred, send it to the client
-//       res.json(err);
-//     });
-// });
+app.get("/saved", function(req, res) {
+  Article.find({"saved": true}).populate("notes").exec(function(error, articles) {
+    var hbsObject = {
+      article: articles
+    };
+    res.render("saved", hbsObject);
+    console.log("saved")
+  });
+});
+
+app.post("/save", function(req, res) {
+  // Grab the id associated with the article from the submit button
+  var thisId = $(this).attr("data-id");
+  db.articles.updateOne(thisId, { saved: true });
+  // Run a POST request to change the note, using what's entered in the inputs
+  $.ajax({
+    method: "UPDATE",
+    url: "/saved"
+  })
+    // With that done
+    .then(function(data) {
+      // Log the response
+      console.log(data);
+    });
+
+  // Also, remove the values entered in the input and textarea for note entry
+  $("#titleinput").val("");
+  $("#bodyinput").val("");
+});
 
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function(req, res) {
