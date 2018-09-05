@@ -160,6 +160,12 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
+// app.get("/clear", function(res, req)
+//   db.Article.deleteMany() {
+    
+// })
+  
+
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
