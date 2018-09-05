@@ -14,7 +14,7 @@ var db = require("./models");
 var PORT = 3000;
 var app = express();
 
-// The middleware
+// Middleware
 
 // Morgan logger for logging requests
 app.use(logger("dev"));
@@ -108,7 +108,6 @@ app.post("/save", function(req, res) {
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
     method: "UPDATE",
-    url: "/saved"
   })
     // With that done
     .then(function(data) {
