@@ -26,6 +26,8 @@ app.use(express.static("public"));
 const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost/NewScrape";
 
+  process.env.PORT || 3000
+
   // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI);
 
