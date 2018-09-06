@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 var db = require("./models");
 
 // Initialize Express, port at 3000
-var PORT = 3000;
+var PORT =   process.env.PORT || 3000;
 var app = express();
 
 // Middleware
@@ -26,7 +26,6 @@ app.use(express.static("public"));
 const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost/NewScrape";
 
-  process.env.PORT || 3000
 
   // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI);
