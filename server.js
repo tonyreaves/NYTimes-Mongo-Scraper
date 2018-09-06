@@ -91,50 +91,50 @@ app.get("/articles", function(req, res) {
     });
 });
 
-app.get("/saved", function(req, res) {
-  Article.find({"saved": true}).populate("notes").exec(function(error, articles) {
-    var hbsObject = {
-      article: articles
-    };
-    res.render("saved", hbsObject);
-    console.log("saved")
-  });
-});
+// app.get("/saved", function(req, res) {
+//   Article.find({"saved": true}).populate("notes").exec(function(error, articles) {
+//     var hbsObject = {
+//       article: articles
+//     };
+//     res.render("saved", hbsObject);
+//     console.log("saved")
+//   });
+// });
 
-app.post("/save", function(req, res) {
-  // Grab the id associated with the article from the submit button
-  var thisId = $(this).attr("data-id");
-  db.articles.updateOne(thisId, { saved: true });
-  // Run a POST request to change the note, using what's entered in the inputs
-  $.ajax({
-    method: "UPDATE",
-  })
-    // With that done
-    .then(function(data) {
-      // Log the response
-      console.log(data);
-    });
+// app.post("/save", function(req, res) {
+//   // Grab the id associated with the article from the submit button
+//   var thisId = $(this).attr("data-id");
+//   db.articles.updateOne(thisId, { saved: true });
+//   // Run a POST request to change the note, using what's entered in the inputs
+//   $.ajax({
+//     method: "UPDATE",
+//   })
+//     // With that done
+//     .then(function(data) {
+//       // Log the response
+//       console.log(data);
+//     });
 
-  // Also, remove the values entered in the input and textarea for note entry
-  $("#titleinput").val("");
-  $("#bodyinput").val("");
-});
+//   // Also, remove the values entered in the input and textarea for note entry
+//   $("#titleinput").val("");
+//   $("#bodyinput").val("");
+// });
 
-// Route for grabbing a specific Article by id, populate it with it's note
-app.get("/articles/:id", function(req, res) {
-  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-  db.Article.findOne({ _id: req.params.id })
-    // ..and populate all of the notes associated with it
-    .populate("note")
-    .then(function(dbArticle) {
-      // If we were able to successfully find an Article with the given id, send it back to the client
-      res.json(dbArticle);
-    })
-    .catch(function(err) {
-      // If an error occurred, send it to the client
-      res.json(err);
-    });
-});
+// // Route for grabbing a specific Article by id, populate it with it's note
+// app.get("/articles/:id", function(req, res) {
+//   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+//   db.Article.findOne({ _id: req.params.id })
+//     // ..and populate all of the notes associated with it
+//     .populate("note")
+//     .then(function(dbArticle) {
+//       // If we were able to successfully find an Article with the given id, send it back to the client
+//       res.json(dbArticle);
+//     })
+//     .catch(function(err) {
+//       // If an error occurred, send it to the client
+//       res.json(err);
+//     });
+// });
 
 // // Route for saving/updating an Article's associated Note
 // app.post("/articles/:id", function(req, res) {
