@@ -32,49 +32,49 @@ $.getJSON("/articles", function(data) {
 // });
 
 
-  //When you click the home button
-  $(document).on("click", "#home", function() {
-    // Grab the id associated with the article from the submit button
-    var thisId = $(this).attr("data-id");
+//   //When you click the home button
+//   $(document).on("click", "#home", function() {
+//     // Grab the id associated with the article from the submit button
+//     var thisId = $(this).attr("data-id");
 
-    // Run a POST request to change the note, using what's entered in the inputs
-    $.ajax({
-      method: "POST",
-      url: "articles",
-      data: {
-        // Value taken from title input
-        title: $("#titleinput").val(),
-        // Value taken from note textarea
-        body: $("#bodyinput").val()
-      }
-    })
-      // With that done
-      .then(function(data) {
-        // Log the response
-        console.log(data);
-      });
+//     // Run a POST request to change the note, using what's entered in the inputs
+//     $.ajax({
+//       method: "POST",
+//       url: "articles",
+//       data: {
+//         // Value taken from title input
+//         title: $("#titleinput").val(),
+//         // Value taken from note textarea
+//         body: $("#bodyinput").val()
+//       }
+//     })
+//       // With that done
+//       .then(function(data) {
+//         // Log the response
+//         console.log(data);
+//       });
 
-    // Also, remove the values entered in the input and textarea for note entry
-    $("#titleinput").val("");
-    $("#bodyinput").val("");
-  });
+//     // Also, remove the values entered in the input and textarea for note entry
+//     $("#titleinput").val("");
+//     $("#bodyinput").val("");
+//   });
 
-  // When you click the savenote button
-  $(document).on("click", "#addBtn", function() {
-  var thisId = $(this).attr("data-id");
-  $.ajax({
-      method: "POST",
-      url: "/saved/" + thisId
-  }).done(function(data) {
-      window.location = "/"
-  })
-});
+//   // When you click the savenote button
+//   $(document).on("click", "#addBtn", function() {
+//   var thisId = $(this).attr("data-id");
+//   $.ajax({
+//       method: "POST",
+//       url: "/saved/" + thisId
+//   }).done(function(data) {
+//       window.location = "/"
+//   })
+// });
 
-  $(document).on("click", "#clear", function(err, res) {
-  if (err) {
-    console.log(err)
-  }
-  else {
-    res: articles.delete_many({"saved": false})
-  }
-})
+//   $(document).on("click", "#clear", function(err, res) {
+//   if (err) {
+//     console.log(err)
+//   }
+//   else {
+//     res: articles.delete_many({"saved": false})
+//   }
+// })
