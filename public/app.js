@@ -15,7 +15,7 @@ $.getJSON("/articles", function(data) {
         " " +
         "</h1></a></div><p><br /><div class='details'>" +
         data[i].details +
-        "</p></div><button id='addBtn' data-id='" +
+        "</p></div><button class='addBtn' data-id='" +
         data[i]._id +
         "'><i class='far fa-bookmark'></i>&nbsp Save</button><button id='noteBtn'><i class='far fa-comment-alt'></i>&nbsp Comment</button></div>"
     );
@@ -60,11 +60,11 @@ $.getJSON("/articles", function(data) {
   });
 
   // When you click the savenote button
-  $(document).on("click", "#addBtn", function() {
+  $(document).on("click", ".addBtn", function() {
   var thisId = $(this).attr("data-id");
   $.ajax({
       method: "POST",
-      url: "/saved/" + thisId
+      url: "/save/" + thisId
   }).done(function(data) {
       window.location = "/"
   })
