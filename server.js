@@ -108,7 +108,7 @@ app.post("/save/:id", function(req, res) {
   // var thisId = $(this).attr("data-id");
   const thisId = req.params.id;
   db.Article.updateOne(thisId, { saved: true });
-  // Run a POST request to change the note, using what's entered in the inputs
+  // POST request to change the note, using what's entered in the inputs
   // $.ajax({
   //   method: "UPDATE",
   // })
