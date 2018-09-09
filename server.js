@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 var db = require("./models");
 
 // Initialize Express, port at 3000
-var PORT =   process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 var app = express();
 
 // Middleware
@@ -23,11 +23,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/NewScrape";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NewScrape";
 
-
-  // Connect to the Mongo DB
+// Connect to the Mongo DB
 mongoose.connect(MONGODB_URI);
 
 // A GET route for scraping the echoJS website
@@ -93,7 +91,7 @@ app.get("/articles", function(req, res) {
 });
 
 app.get("/saved/:id", function(req, res) {
-  // 
+  //
   // db.Article.find({"saved": true}).populate("notes").exec(function(error, articles) {
   //   var hbsObject = {
   //     article: articles
@@ -163,11 +161,16 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
-// app.get("/clear", function(res, req)
-//   db.Article.deleteMany() {
-    
-// })
-  
+app.get("/clear", function(res, req) {
+  console.log("yffyfytftyfty");
+  db.Article.deleteMany({ saved: false }).then(function() {
+    res.send("All clear!");
+  });
+  // .catch(function(err) {
+  // If an error occurred, send it to the client
+  //  res.json(err);
+  // });
+});
 
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
